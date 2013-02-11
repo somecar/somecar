@@ -1,0 +1,9 @@
+development:
+  adapter: mysql2
+  database: somacar_dev
+  encoding: utf8
+  username: root
+  password:
+  host: mysql2.locum.ru
+  pool: 5
+  timeout: 5000
