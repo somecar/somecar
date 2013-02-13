@@ -1,18 +1,15 @@
 <h2>Регистрация</h2>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
-
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
-
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
-
-  <div><%= f.submit "Зарегистрироваться" %></div>
+  <%= f.input :email, label: 'Введите Ваш E-mail' %><br />
+  
+  <%= f.input :password, label: 'Введите Ваш пароль' %><br />
+  
+  <%= f.input :password_confirmation, label: 'Повторите пароль' %><br />
+  
+  <%= f.submit "Зарегистрироваться" %>
 <% end %>
 
 <%= render "devise/shared/links" %>
