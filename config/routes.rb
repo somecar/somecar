@@ -1,7 +1,4 @@
 Somecar::Application.routes.draw do
-  #for some route
-  get "welcome/index"
-
   devise_for :users
 
 
