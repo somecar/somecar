@@ -11,6 +11,8 @@ gem 'devise'
 # gem for form
 gem 'simple_form'
 
+#for server
+gem 'execjs'
 
 # Gems used only for assets and not required
 # in production environments by default.

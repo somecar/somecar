@@ -118,6 +118,7 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails
   devise
+  execjs
   jquery-rails
   mysql2
   rails (= 3.2.12)
