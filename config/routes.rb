@@ -1,6 +1,8 @@
 Somecar::Application.routes.draw do
   devise_for :users
 
+  get 'welcome/proba'
+
 
 
   # The priority is based upon order of creation:
