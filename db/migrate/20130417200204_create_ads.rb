@@ -16,11 +16,11 @@ class CreateAds < ActiveRecord::Migration
       t.string :exchange
       t.integer :owner
       t.date :date
-      t.has_attached_file :photo
       t.string :region
       t.string :city
       t.integer :automodel_id
       t.integer :automark_id
+      t.string :country
 
       t.timestamps
     end

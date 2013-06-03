@@ -23,8 +23,7 @@ class AdsController < ApplicationController
 
   # GET /ads/new
   # GET /ads/new.json
-  
-  def new
+    def new
     @ad = Ad.new
     @automodels = Automodel.all
 
@@ -33,7 +32,6 @@ class AdsController < ApplicationController
       format.json { render json: @ad }
     end
   end
-
 
   # GET /ads/1/edit
   def edit
@@ -45,7 +43,6 @@ class AdsController < ApplicationController
   def create
     @ad = Ad.new(params[:ad])
     
-
     respond_to do |format|
       if @ad.save
         format.html { redirect_to @ad, notice: 'Ad was successfully created.' }
