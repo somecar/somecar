@@ -18,9 +18,9 @@ class CreateAds < ActiveRecord::Migration
       t.date :date
       t.string :region
       t.string :city
-      t.integer :automodel_id
-      t.integer :automark_id
-      t.string :country
+      t.string :automodel
+      t.string :automark
+      
 
       t.timestamps
     end
