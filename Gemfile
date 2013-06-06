@@ -12,6 +12,9 @@ gem 'devise'
 gem 'simple_form'
 # gem for authorization
 gem 'cancan'
+#for upload files
+gem "rmagick"
+gem "carrierwave"
 
 #for server
 gem 'execjs'

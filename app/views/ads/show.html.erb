@@ -1,0 +1,100 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Цвет:</b>
+  <%= @ad.color %>
+</p>
+
+<p>
+  <b>Стоимость:</b>
+  <%= @ad.price %>
+</p>
+
+<p>
+  <b>Тип кузова:</b>
+  <%= @ad.bodytype %>
+</p>
+
+<p>
+  <b>Пробег:</b>
+  <%= @ad.mileage %>
+</p>
+
+<p>
+  <b>Тип двигателя:</b>
+  <%= @ad.enginetype %>
+</p>
+
+<p>
+  <b>Объем двигателя:</b>
+  <%= @ad.enginecapacity %>
+</p>
+
+<p>
+  <b>Привод:</b>
+  <%= @ad.drive %>
+</p>
+
+<p>
+  <b>Мощность двигателя:</b>
+  <%= @ad.power %>
+</p>
+
+<p>
+  <b>Коробка передач:</b>
+  <%= @ad.transmission %>
+</p>
+
+<p>
+  <b>Состояние:</b>
+  <%= @ad.state %>
+</p>
+
+<p>
+  <b>Ориентированоость руля:</b>
+  <%= @ad.wheel %>
+</p>
+
+<p>
+  <b>Таможня:</b>
+  <%= @ad.customs %>
+</p>
+
+<p>
+  <b>Возможность обмена:</b>
+  <%= @ad.exchange %>
+</p>
+
+<p>
+  <b>Кол-во хозяев по ПТС:</b>
+  <%= @ad.owner %>
+</p>
+
+<p>
+  <b>Дата подачи:</b>
+  <%= @ad.date %>
+</p>
+
+<p>
+  <b>Область:</b>
+  <%= @ad.region %>
+</p>
+
+<p>
+  <b>Город:</b>
+  <%= @ad.city %>
+</p>
+
+<p>
+  <b>Модель:</b>
+  <%= @ad.automodel %>
+</p>
+
+<p>
+  <b>Марка:</b>
+  <%= @ad.automark %>
+</p>
+
+
+<%= link_to 'Edit', edit_ad_path(@ad) %> |
+<%= link_to 'Back', ads_path %>
