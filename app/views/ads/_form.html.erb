@@ -1,0 +1,32 @@
+
+<%= simple_form_for(@ad, :html => { :multipart => true }) do |f| %>
+  <%= f.error_notification %>
+
+    <%= f.input :automark, collection: Automark.find(:all) %>
+    <%= f.input :automodel, collection: Automodel.find(:all) %>
+    
+    <%= f.input :color, label: 'Цвет' %>
+    <%= f.input :price, label: 'Стоимость' %>
+    <%= f.input :bodytype, label: 'Тип кузова' %>
+    <%= f.input :mileage, label: 'Пробег, км' %>
+    <%= f.input :enginetype, label: 'Тип двигателя' %>
+    <%= f.input :enginecapacity, label: 'Объем двигателя, см3' %>
+    <%= f.input :drive, label: 'Привод' %>
+    <%= f.input :power, label: 'Мощность, л.с.' %>
+    <%= f.input :transmission, label: 'Коробка передач' %>
+    <%= f.input :state, label: 'Состояние' %>
+    <%= f.input :wheel, label: 'Ориентированность рулевого колеса' %>
+    <%= f.input :customs, label: 'Таможня' %>
+    <%= f.input :exchange, label: 'Возможность обмена' %>
+    <%= f.input :owner, label: 'Кол-во владельцев' %>
+    <%= f.input :date, :start_year => Time.now.year, :end_year => Time.now.year - 60, :discard_day => true, :discard_month => true, label: 'Год выпуска' %>
+    <%= f.input :region, label: 'Область' %>
+    <%= f.input :city, label: 'Город' %>
+
+    
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
