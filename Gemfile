@@ -7,7 +7,7 @@ gem 'rails', '3.2.12'
 
 gem 'sqlite3'
 gem 'mysql2'
-# gem for user authentification
+# gem for user authentication
 gem 'devise'
 # gem for form
 gem 'simple_form'
@@ -27,6 +27,9 @@ end
 
 gem 'jquery-rails'
 
+# for admin pages
+gem 'activeadmin'
+gem 'meta_search',    '>= 1.1.0.pre'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
