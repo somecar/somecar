@@ -8,6 +8,27 @@ Somecar::Application.configure do
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
 
+  # Don't care if the mailer can't send
+  config.action_mailer.raise_delivery_errors = false
+
+  # ActionMailer Config
+  config.action_mailer.default_url_options = { :host => 'somecar.lvl0naxdev.locum.ru' }
+  config.action_mailer.delivery_method = :smtp
+  # change to true to allow email to be sent during development
+  # config.action_mailer.perform_deliveries = false
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default :charset => "utf-8"
+
+  config.action_mailer.smtp_settings = {
+    address: "smtp.gmail.com",
+    port: 587,
+    domain: "gmail.com",
+    authentication: "plain",
+    enable_starttls_auto: true,
+    user_name: "neodelfspam@gmail.com",
+    password: "1101403955gmail"
+  }
+
   # Disable Rails's static asset server (Apache or nginx will already do this)
   config.serve_static_assets = false
 

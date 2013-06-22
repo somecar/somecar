@@ -1,0 +1,45 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  color: MyString
+  price: 1
+  bodytype: MyString
+  mileage: 1
+  enginetype: MyString
+  enginecapacity: 1
+  drive: MyString
+  power: 1
+  transmission: MyString
+  state: MyString
+  wheel: MyString
+  customs: false
+  exchange: MyString
+  owner: 1
+  date: 2013-04-18
+  photo: MyString
+  region: MyString
+  city: MyString
+  automodel: MyString
+  automark: MyString
+
+two:
+  color: MyString
+  price: 1
+  bodytype: MyString
+  mileage: 1
+  enginetype: MyString
+  enginecapacity: 1
+  drive: MyString
+  power: 1
+  transmission: MyString
+  state: MyString
+  wheel: MyString
+  customs: false
+  exchange: MyString
+  owner: 1
+  date: 2013-04-18
+  photo: MyString
+  region: MyString
+  city: MyString
+  automodel: MyString
+  automark: MyString

@@ -1,0 +1,59 @@
+<h1>Listing ads</h1>
+
+<table>
+  <tr>
+    <th>Color</th>
+    <th>Price</th>
+    <th>Bodytype</th>
+    <th>Mileage</th>
+    <th>Enginetype</th>
+    <th>Enginecapacity</th>
+    <th>Drive</th>
+    <th>Power</th>
+    <th>Transmission</th>
+    <th>State</th>
+    <th>Wheel</th>
+    <th>Customs</th>
+    <th>Exchange</th>
+    <th>Owner</th>
+    <th>Date</th>
+    <th>Region</th>
+    <th>City</th>
+    <th>Automodel</th>
+    <th>Automark</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @ads.each do |ad| %>
+  <tr>
+    <td><%= ad.color %></td>
+    <td><%= ad.price %></td>
+    <td><%= ad.bodytype %></td>
+    <td><%= ad.mileage %></td>
+    <td><%= ad.enginetype %></td>
+    <td><%= ad.enginecapacity %></td>
+    <td><%= ad.drive %></td>
+    <td><%= ad.power %></td>
+    <td><%= ad.transmission %></td>
+    <td><%= ad.state %></td>
+    <td><%= ad.wheel %></td>
+    <td><%= ad.customs %></td>
+    <td><%= ad.exchange %></td>
+    <td><%= ad.owner %></td>
+    <td><%= ad.date %></td>
+    <td><%= ad.region %></td>
+    <td><%= ad.city %></td>
+    <td><%= ad.automodel %></td>
+    <td><%= ad.automark %></td>
+    <td><%= link_to 'Show', ad %></td>
+    <td><%= link_to 'Edit', edit_ad_path(ad) %></td>
+    <td><%= link_to 'Destroy', ad, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Ad', new_ad_path %>

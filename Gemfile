@@ -5,12 +5,20 @@ gem 'rails', '3.2.12'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
 gem 'mysql2'
 # gem for user authentication
 gem 'devise'
 # gem for form
 gem 'simple_form'
+# gem for authorization
+gem 'cancan'
+#for upload files
+gem 'rmagick'
+gem 'carrierwave'
+
+#for server
+gem 'execjs'
+gem 'therubyracer'
 
 # Gems used only for assets and not required
 # in production environments by default.
