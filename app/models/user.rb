@@ -6,11 +6,28 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :role_ids
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :role
   # attr_accessible :title, :body
-  has_and_belongs_to_many :roles
+  after_create :set_role
+  ROLES = {admin: 0, master: 1, customer: 2}.freeze
+
+  def set_role
+    self.role = 2
+  end
   
-  def role? (role)
-  	return !!self.roles.find_by_name(role.to_s.camelize)
+  def admin?
+    role == 0
+  end
+
+  def master?
+    role == 1
+  end
+
+  def customer?
+    role == 2
+  end
+
+  def role_name
+    ROLES.keys[role]
   end
 end
