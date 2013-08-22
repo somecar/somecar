@@ -1,9 +1,9 @@
 
-<%= simple_form_for(@ad, :html => { :multipart => true }) do |f| %>
+<%= simple_form_for(@ad, html: {multipart: true}) do |f| %>
   <%= f.error_notification %>
 
-    <%= f.input :automark, collection: Automark.find(:all) %>
-    <%= f.input :automodel, collection: Automodel.find(:all) %>
+    <%= f.input :automark, collection: Automark.all %>
+    <%= f.input :automodel, collection: Automodel.all %>
     
     <%= f.input :color, label: 'Цвет' %>
     <%= f.input :price, label: 'Стоимость' %>

@@ -10,6 +10,9 @@ gem 'mysql2'
 gem 'devise'
 # gem for form
 gem 'simple_form'
+gem 'haml-rails'
+gem 'haml'
+
 # gem for authorization
 gem 'cancan'
 #for upload files

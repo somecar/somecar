@@ -1,5 +1,9 @@
 Somecar::Application.routes.draw do
-  resources :ads
+  resources :ads do
+    collection do
+      get :search
+    end
+  end
   devise_for :users
   get 'welcome/proba'
   
