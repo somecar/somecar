@@ -3,6 +3,7 @@
 = simple_form_for :ad, url: search_ads_path do |f|
   = f.input :automark, collection: Automark.all, label: 'Марка автомобиля'
   = f.input :automodel, collection: Automodel.all, label: 'Модель автомобиля'
+  = f.input :automodel, collection: Automodel.select('id, name').all, label: 'Модель автомобиля', input_html: {id: 'mySel2', class: 'select2', multiple: 'multiple', style: 'width: 300px;'}
 
   = f.input :color, label: 'Цвет'
   = f.input :price, label: 'Стоимость'
