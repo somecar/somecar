@@ -8,7 +8,5 @@ class Somecar.Views.AdsIndex extends Backbone.View
     @collection.fetch()
 
   render: ->
-    $('.search_results').append "<p>before rendering template</p>"
     $('.search_results').append @template(ads: @collection)
-    $('.search_results').append "<p>after rendering template</p>"
     @

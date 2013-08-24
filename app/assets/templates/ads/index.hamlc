@@ -1,20 +1,16 @@
-= @ads.length
-= @ads.models.length
-
 
 - for ad in @ads.models
   %div.row
     %div.span6
-      = ad
       %b
         id
-      %p
-        =ad.attributes.ad.id
+      %span
+        =ad.get('ad').id
       %b
         color
-      %p
-        = ad.attributes.ad.color
+      %span
+        = ad.get('ad').color
       %b
         price
-      %p
-        = ad.get('price')
+      %span
+        = ad.get('ad').price
