@@ -1,0 +1,20 @@
+= @ads.length
+= @ads.models.length
+
+
+- for ad in @ads.models
+  %div.row
+    %div.span6
+      = ad
+      %b
+        id
+      %p
+        =ad.attributes.ad.id
+      %b
+        color
+      %p
+        = ad.attributes.ad.color
+      %b
+        price
+      %p
+        = ad.get('price')

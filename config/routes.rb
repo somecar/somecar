@@ -1,4 +1,13 @@
 Somecar::Application.routes.draw do
+
+  namespace :api do
+    resources :ads do
+      collection do
+        get :search
+      end
+    end
+  end
+
   resources :ads do
     collection do
       get :search

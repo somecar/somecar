@@ -19,9 +19,7 @@ gem 'cancan'
 gem 'rmagick'
 gem 'carrierwave'
 
-#for server
-gem 'execjs'
-gem 'therubyracer'
+gem 'rabl'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -29,6 +27,11 @@ group :assets do
   gem 'less-rails'
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails'
+  gem 'backbone-on-rails'
+  gem 'haml_coffee_assets'
+  #for server
+  gem 'therubyracer'
+  gem 'execjs'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
