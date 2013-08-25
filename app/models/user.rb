@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
 
   def set_role
     self.role = 2
+    self.save
   end
   
   def admin?
