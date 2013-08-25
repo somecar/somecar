@@ -1,6 +1,6 @@
 %h3
   форма поиска
-= simple_form_for :ad, url: search_ads_path do |f|
+= simple_form_for :ad, url: '#' do |f|
   = f.input :automark, collection: Automark.all, label: 'Марка автомобиля', input_html: {class: 'search-form__automark'}
   = f.input :automodel, collection: Automodel.all, label: 'Модель автомобиля', input_html: {class: 'search-form__automodel'}
 
