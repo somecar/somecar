@@ -1,5 +1,9 @@
 Somecar::Application.routes.draw do
 
+  ActiveAdmin.routes(self)
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+
   namespace :api do
     resources :ads do
       collection do

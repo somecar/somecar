@@ -19,7 +19,11 @@ gem 'cancan'
 gem 'rmagick'
 gem 'carrierwave'
 
+# for api json views
 gem 'rabl'
+
+# for admin pages
+gem 'activeadmin'
 
 # Gems used only for assets and not required
 # in production environments by default.
