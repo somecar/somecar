@@ -1,5 +1,22 @@
 Somecar::Application.routes.draw do
-  resources :ads
+
+  ActiveAdmin.routes(self)
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+
+  namespace :api do
+    resources :ads do
+      collection do
+        get :search
+      end
+    end
+  end
+
+  resources :ads do
+    collection do
+      get :search
+    end
+  end
   devise_for :users
   get 'welcome/proba'
   

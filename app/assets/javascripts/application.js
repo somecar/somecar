@@ -12,4 +12,26 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap
+//= require underscore
+//= require backbone
+//= require somecar
+//= require hamlcoffee
+//= require_tree ../templates
+//= require_tree ./models
+//= require_tree ./collections
+//= require_tree ./views
+//= require_tree ./routers
 //= require_tree .
+$.getScript('http://ivaynberg.github.io/select2/select2-2.1/select2.js',function(){
+
+  $("#mySel").select2({
+    allowClear:true
+  });
+
+  $("#mySel2").select2({
+    closeOnSelect:false,
+    allowClear:true
+  });
+
+});

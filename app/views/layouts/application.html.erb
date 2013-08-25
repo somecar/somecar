@@ -2,8 +2,8 @@
 <html>
 <head>
   <title>Somecar</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -18,12 +18,12 @@
       </a>
       <a class="brand" href="#">SomeCar</a>
       <div class="nav-collapse">
-        <ul class="nav">
+        <ul class="nav pull-right">
           <% if current_user %>
-            <li><%= link_to "Выйти", destroy_user_session_url, :method => :delete %></li>
+            <li ><%= link_to 'Выйти', destroy_user_session_url, method: :delete %></li>
           <% else %>
-            <li><%= link_to "Войти", new_user_session_path %></li>
-            <li><%= link_to "Зарегистрироваться", new_user_registration_path %></li>
+            <li><%= link_to 'Войти', new_user_session_path %></li>
+            <li><%= link_to 'Зарегистрироваться', new_user_registration_path %></li>
           <% end %>
         </ul>
       </div>

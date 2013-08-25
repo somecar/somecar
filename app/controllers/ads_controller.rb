@@ -5,7 +5,7 @@ class AdsController < ApplicationController
     @ads = Ad.all
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html # index.html.haml
       format.json { render json: @ads }
     end
   end
@@ -80,5 +80,9 @@ class AdsController < ApplicationController
       format.html { redirect_to ads_url }
       format.json { head :no_content }
     end
+  end
+
+  def search
+    @ad_count = 7
   end
 end
