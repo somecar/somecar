@@ -1,0 +1,23 @@
+%h3
+  форма поиска
+= simple_form_for :ad, url: '#' do |f|
+  = f.input :automark, collection: Automark.all, label: 'Марка автомобиля', input_html: {class: 'search-form__automark'}
+  = f.input :automodel, collection: Automodel.all, label: 'Модель автомобиля', input_html: {class: 'search-form__automodel'}
+
+  = f.input :price, label: 'Стоимость от', input_html: {class: 'search-form__price_start'}
+  = f.input :price, label: ' до ', input_html: {class: 'search-form__price_end'}
+  = f.input :bodytype, label: 'Тип кузова', input_html: {class: 'search-form__bodytype'}, collection: Ad::BODYTYPES, as: :check_boxes
+  = f.input :mileage, label: 'Пробег до, км', input_html: {class: 'search-form__mileage'}
+  = f.input :enginetype, label: 'Тип двигателя', input_html: {class: 'search-form__enginetype'}, collection: Ad::ENGINETYPES, as: :check_boxes
+  = f.input :enginecapacity, label: 'Объем двигателя от, см3', input_html: {class: 'search-form__enginecapacity_start'}
+  = f.input :enginecapacity, label: ' до , см3', input_html: {class: 'search-form__enginecapacity_end'}
+  = f.input :drive, label: 'Привод', input_html: {class: 'search-form__drive'}, collection: Ad::DRIVETYPE, as: :check_boxes
+  = f.input :power, label: 'Мощность от , л.с.', input_html: {class: 'search-form__power_start'}
+  = f.input :power, label: ' до , л.с.', input_html: {class: 'search-form__power_end'}
+  = f.input :transmission, label: 'Коробка передач', input_html: {class: 'search-form__transmission'}, collection: Ad::TRANSMISSION, as: :check_boxes
+  = f.input :date, start_year: Time.now.year, end_year: Time.now.year - 60, discard_day: true, discard_month: true, label: 'Год выпуска от', input_html: {class: 'search-form__date_start'}
+  = f.input :date, start_year: Time.now.year, end_year: Time.now.year - 60, discard_day: true, discard_month: true, label: 'до ', input_html: {class: 'search-form__date_end'}
+  = f.input :region, label: 'Область', input_html: {class: 'search-form__region'}
+  = f.input :city, label: 'Город', input_html: {class: 'search-form__city'}
+  .form-actions
+    = f.button :submit, id: 'to_search', value: 'Найти'

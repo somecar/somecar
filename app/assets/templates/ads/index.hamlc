@@ -1,0 +1,16 @@
+
+- for ad in @ads.models
+  %div.row
+    %div.span6
+      %b
+        id
+      %span
+        =ad.get('ad').id
+      %b
+        color
+      %span
+        = ad.get('ad').color
+      %b
+        price
+      %span
+        = ad.get('ad').price
