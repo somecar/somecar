@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
   after_create :set_role
   ROLES = {admin: 0, master: 1, customer: 2}.freeze
 
+  has_many :ads
+
   def set_role
     self.role = 2
     self.save

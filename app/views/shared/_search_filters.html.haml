@@ -1,8 +1,7 @@
 %h3
   форма поиска
 = simple_form_for :ad, url: '#' do |f|
-  = f.input :automark, collection: Automark.all, label: 'Марка автомобиля', input_html: {class: 'search-form__automark'}
-  = f.input :automodel, collection: Automodel.all, label: 'Модель автомобиля', input_html: {class: 'search-form__automodel'}
+  = f.input :automark, collection: Automark.all, label: 'Марка автомобиля', input_html: {class: 'search-form__automark', multiple: '', style: 'width: 220px;'}
 
   = f.input :price, label: 'Стоимость от', input_html: {class: 'search-form__price_start'}
   = f.input :price, label: ' до ', input_html: {class: 'search-form__price_end'}

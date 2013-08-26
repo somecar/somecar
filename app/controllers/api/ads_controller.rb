@@ -1,10 +1,7 @@
 class Api::AdsController < ApplicationController
   def index
     chain = Ad.order(:created_at)
-    # TODO: make search by marks and models
     marks = params[:marks]
-    models = params[:models]
-
     start_price = params[:start_price]
     end_price = params[:end_price]
     body_types = params[:body_types]
@@ -24,6 +21,7 @@ class Api::AdsController < ApplicationController
     region = params[:region]
     city = params[:city]
 
+    chain = chain.where(automark_id: marks) if marks.present?
     chain = chain.where('price > ?', start_price) if start_price.present?
     chain = chain.where('price < ?', end_price) if end_price.present?
     chain = chain.where(bodytype: body_types) if body_types.present?

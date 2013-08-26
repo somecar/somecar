@@ -42,13 +42,13 @@ class AdsController < ApplicationController
   # POST /ads.json
   def create
     @ad = Ad.new(params[:ad])
-    
+    @ad.user = current_user if current_user
     respond_to do |format|
       if @ad.save
         format.html { redirect_to @ad, notice: 'Ad was successfully created.' }
         format.json { render json: @ad, status: :created, location: @ad }
       else
-        format.html { render action: "new" }
+        format.html { render action: 'new' }
         format.json { render json: @ad.errors, status: :unprocessable_entity }
       end
     end
