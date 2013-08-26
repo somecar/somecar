@@ -25,6 +25,9 @@ gem 'rabl'
 # for admin pages
 gem 'activeadmin'
 
+# for multipe select field
+gem 'select2-rails'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -46,7 +49,6 @@ end
 gem 'jquery-rails'
 
 # for admin pages
-gem 'activeadmin'
 gem 'meta_search',    '>= 1.1.0.pre'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

@@ -23,15 +23,10 @@
 //= require_tree ./views
 //= require_tree ./routers
 //= require_tree .
+//= require select2
 $.getScript('http://ivaynberg.github.io/select2/select2-2.1/select2.js',function(){
 
-  $("#mySel").select2({
+  $(".search-form__automark").select2({
     allowClear:true
   });
-
-  $("#mySel2").select2({
-    closeOnSelect:false,
-    allowClear:true
-  });
-
 });

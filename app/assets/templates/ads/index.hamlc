@@ -1,16 +1,56 @@
 
 - for ad in @ads.models
-  %div.row
+  %div.row.bordered_search_result
     %div.span6
       %b
         id
       %span
         =ad.get('ad').id
       %b
-        color
+        Цвет
       %span
         = ad.get('ad').color
+      %br
       %b
-        price
+        Цена
       %span
         = ad.get('ad').price
+        руб.
+      %b
+        объем двигателя
+      %span
+        = ad.get('ad').enginecapacity
+        куб.см
+      %br
+      %b
+        Пробег
+      %span
+        = ad.get('ad').mileage
+        км
+      %br
+      %b
+        дата создания
+      %span
+        = ad.get('ad').created_at
+      %b
+        Город
+      %span
+        = ad.get('ad').city
+      %br
+      %b
+        Модель
+      %span
+        = ad.get('ad').model
+      %b
+        Марка
+      %span
+        = ad.get('ad').mark
+      %br
+      %b
+        Кузов
+      %span
+        = ad.get('ad').bodytype
+      %b
+        Коробка передач
+      %span
+        = ad.get('ad').transmission

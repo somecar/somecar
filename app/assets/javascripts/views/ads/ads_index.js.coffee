@@ -17,8 +17,7 @@ class Somecar.Views.AdsIndex extends Backbone.View
   search: (e)->
     e.preventDefault()
     @collection.fetch(data:
-                        marks: $('.search-form__automark').val()
-                        models: $('.search-form__automodel').val()
+                        marks: $(".search-form__automark").select2('val')
                         start_price: $('.search-form__price_start').val()
                         end_price: $('.search-form__price_end').val()
                         body_types: $(".search-form__bodytype:checked").map(-> @value ).get()
