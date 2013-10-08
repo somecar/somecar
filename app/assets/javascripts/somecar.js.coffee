@@ -9,3 +9,7 @@ window.Somecar =
 
 $(document).ready ->
   Somecar.initialize()
+
+
+$(document).ready ->
+  $('#new_ad').fileupload()

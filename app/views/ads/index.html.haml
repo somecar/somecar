@@ -1,0 +1,43 @@
+%h2
+  Список всех объявлений
+
+
+.container
+  %table.table.table-striped
+    %thead
+      %tr
+        %th Марка
+        %th Модель
+        %th Мощность, л.с.
+        %th Коробка передач
+        %th Состояние
+        %th Таможня
+        %th Возможность обмена
+        %th Кол-во владельцев
+        %th Дата публикации
+        %th Область
+        %th Цвет
+        %th Пробег
+        %th
+    %tbody
+      - @ads.each do |ad|
+        %tr
+          %td= Automark.find(ad.automark_id).name
+          %td= Automodel.find(ad.automodel_id).name
+          %td= ad.power
+          %td= Ad::TRANSMISSION.rassoc(ad.transmission)[0]
+          %td= ad.state
+          %td= Ad::CUSTOMS.rassoc(ad.customs)[0]
+          %td= Ad::EXCHANGE.rassoc(ad.exchange.to_i)[0]
+          %td= ad.owner
+          %td= ad.date
+          %td= ad.region
+          %td= ad.color
+          %td= ad.mileage
+          %td= link_to 'Просмотр объявления', ad
+
+
+
+
+
+= link_to 'Новое объявление', new_ad_path

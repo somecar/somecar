@@ -1,3 +1,4 @@
+# coding: utf-8
 class AdsController < ApplicationController
   # GET /ads
   # GET /ads.json
@@ -16,7 +17,7 @@ class AdsController < ApplicationController
     @ad = Ad.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html # show.html.haml
       format.json { render json: @ad }
     end
   end
@@ -45,7 +46,7 @@ class AdsController < ApplicationController
     @ad.user = current_user if current_user
     respond_to do |format|
       if @ad.save
-        format.html { redirect_to @ad, notice: 'Ad was successfully created.' }
+        format.html { redirect_to @ad, notice: 'Ваше объявление добавлено.' }
         format.json { render json: @ad, status: :created, location: @ad }
       else
         format.html { render action: 'new' }
@@ -85,4 +86,12 @@ class AdsController < ApplicationController
   def search
     @ad_count = 7
   end
+
+  def get_drop_down_options
+    val = params[:ad_automark_id]
+    #Use val to find records
+    options = Automodel.collect{|x| "'#{x.id}' : '#{x.name}'"}
+    render :text => "{#{options.join(",")}}"
+  end
+
 end

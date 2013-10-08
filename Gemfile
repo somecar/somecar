@@ -18,6 +18,7 @@ gem 'cancan'
 #for upload files
 gem 'rmagick'
 gem 'carrierwave'
+gem 'jquery-fileupload-rails'
 
 # for api json views
 gem 'rabl'

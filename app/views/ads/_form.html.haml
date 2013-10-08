@@ -1,0 +1,55 @@
+= simple_form_for(@ad, html: {multipart: true}) do |f|
+  = f.error_notification
+  = f.label :automark_id
+  = f.collection_select :automark_id, Automark.all, :id, :name,
+      {include_blank: true},
+      { data: { dynamic_selectable_url: dynamic_select_automodels_path(':automark_id'), dynamic_selectable_target: '#ad_automodel_id'}}
+  = f.label :automodel_id
+  = f.collection_select :automodel_id, @ad.automark.try(:automark) || [], :id, :name, :include_blank => true
+  = f.input :color, label: 'Цвет'
+  = f.input :price, label: 'Стоимость'
+  = f.input :bodytype, label: 'Тип кузова', collection: Ad::BODYTYPES
+  = f.input :mileage, label: 'Пробег, км'
+  = f.input :enginetype, label: 'Тип двигателя', collection: Ad::ENGINETYPES, as: :radio_buttons
+  = f.input :enginecapacity, label: 'Объем двигателя, см3'
+  = f.input :drive, label: 'Привод', collection: Ad::DRIVETYPE, as: :radio_buttons
+  = f.input :power, label: 'Мощность, л.с.'
+  = f.input :transmission, label: 'Коробка передач', collection: Ad::TRANSMISSION, as: :radio_buttons
+  = f.input :state, label: 'Состояние'
+  = f.input :wheel, label: 'Ориентированность рулевого колеса', collection: Ad::WHEELTYPE
+  = f.input :customs, label: 'Таможня', collection: Ad::CUSTOMS, as: :radio_buttons
+  = f.input :exchange, label: 'Возможность обмена', collection: Ad::EXCHANGE, as: :radio_buttons
+  = f.input :owner, label: 'Кол-во владельцев'
+  = f.input :date, :start_year => Time.now.year, :end_year => Time.now.year - 60, :discard_day => true, :discard_month => true, label: 'Год выпуска'
+  = f.input :region, label: 'Область'
+  = f.input :city, label: 'Город'
+  = f.file_field :image, label: 'Фотография'
+  = f.input :image_url, label: 'Скопируйте URL фотографии'
+  = f.button :submit
+
+
+
+
+  //= observe_field :automark_id, :url => automarks_path(:format => "for_select"), :method => :get, :update => :automodel_id, :with => "'automark_id=' + value"
+
+//:javascript
+//  $(document).ready(function(){
+//    /*$('#ad_automark').on('click', function(){
+//        alert(1);
+//      });
+//    $('#ad_automark').click(function(){
+//        var value = $('select#ad_automark :selected').val();
+//        alert(value);
+//
+//    });*/
+//    $("#ad_automark").click(function(){
+//      var url = 'get_drop_down_options?automark_id=' + $(this).val();
+//      alert(url);
+//      $("#ad_automodel").remove();
+//      $.get(url, function(data) {
+//        $('#ad_automodel').append(data, false);
+//      });
+//    });
+//  });       */
+
+

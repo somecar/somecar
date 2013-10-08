@@ -24,6 +24,8 @@
 //= require_tree ./routers
 //= require_tree .
 //= require select2
+//= require dynamic-selectable
+
 $.getScript('http://ivaynberg.github.io/select2/select2-2.1/select2.js',function(){
 
   $(".search-form__automark").select2({

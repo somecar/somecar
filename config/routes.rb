@@ -17,7 +17,13 @@ Somecar::Application.routes.draw do
       get :search
     end
   end
+
+  namespace :dynamic_select do
+    get ':automark_id/automodels', to: 'automodels#index', as: 'automodels'
+  end
+
   devise_for :users
+
   get 'welcome/proba'
   
   # The priority is based upon order of creation:
