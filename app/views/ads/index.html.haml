@@ -5,7 +5,9 @@
 .container
   %table.table.table-striped
     %thead
-      %tr
+      %t
+        %th
+        %th Фото
         %th Марка
         %th Модель
         %th Мощность, л.с.
@@ -18,23 +20,24 @@
         %th Область
         %th Цвет
         %th Пробег
-        %th
     %tbody
       - @ads.each do |ad|
         %tr
-          %td= Automark.find(ad.automark_id).name
-          %td= Automodel.find(ad.automodel_id).name
-          %td= ad.power
-          %td= Ad::TRANSMISSION.rassoc(ad.transmission)[0]
-          %td= ad.state
-          %td= Ad::CUSTOMS.rassoc(ad.customs)[0]
-          %td= Ad::EXCHANGE.rassoc(ad.exchange.to_i)[0]
-          %td= ad.owner
-          %td= ad.date
-          %td= ad.region
-          %td= ad.color
-          %td= ad.mileage
           %td= link_to 'Просмотр объявления', ad
+          %td= ad.images.first ? 'Фото есть' : 'Фотографии отсутствуют'
+          %td= Automark.find(ad.automark_id).name if ad.automark_id
+          %td= Automodel.find(ad.automodel_id).name if ad.automodel_id
+          %td= ad.power if ad.power
+          %td= Ad::TRANSMISSION.rassoc(ad.transmission)[0] if ad.transmission
+          %td= ad.state if ad.state
+          %td= Ad::CUSTOMS.rassoc(ad.customs)[0] if ad.customs
+          %td= Ad::EXCHANGE.rassoc(ad.exchange.to_i)[0] if ad.exchange.to_i
+          %td= ad.owner if ad.owner
+          %td= ad.date if ad.date
+          %td= ad.region if ad.region
+          %td= ad.color if ad.color
+          %td= ad.mileage if ad.mileage
+
 
 
 

@@ -1,9 +1,9 @@
 %p#notice
   = notice
 
-- if @ad.image?
-  - @ad.image do |image|
-    = image_tag @ad.image, class: 'img-polaroid'
+- if @ad.images
+  - @ad.images.each do |image|
+    = image_tag image.image.thumb, class: 'img-polaroid'
 
 %p
   %b Цвет:

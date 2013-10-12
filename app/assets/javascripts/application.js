@@ -22,9 +22,11 @@
 //= require_tree ./collections
 //= require_tree ./views
 //= require_tree ./routers
-//= require_tree .
 //= require select2
 //= require dynamic-selectable
+//= require jquery-fileupload/basic
+//= require jquery-fileupload/vendor/tmpl
+//= require_tree .
 
 $.getScript('http://ivaynberg.github.io/select2/select2-2.1/select2.js',function(){
 
@@ -32,3 +34,4 @@ $.getScript('http://ivaynberg.github.io/select2/select2-2.1/select2.js',function
     allowClear:true
   });
 });
+

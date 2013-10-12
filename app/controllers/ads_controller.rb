@@ -26,7 +26,7 @@ class AdsController < ApplicationController
   # GET /ads/new.json
     def new
     @ad = Ad.new
-    @automodels = Automodel.all
+    @ad.images.build
 
     respond_to do |format|
       format.html # new.html.erb
@@ -42,7 +42,10 @@ class AdsController < ApplicationController
   # POST /ads
   # POST /ads.json
   def create
-    @ad = Ad.new(params[:ad])
+    @ad = Ad.create(params[:ad])
+    params[:image][:image].each do |image|
+     @ad.images.create(image: image)
+    end
     @ad.user = current_user if current_user
     respond_to do |format|
       if @ad.save
@@ -59,7 +62,10 @@ class AdsController < ApplicationController
   # PUT /ads/1.json
   def update
     @ad = Ad.find(params[:id])
-
+    @ad.images.destroy_all if params[:image][:image]
+    params[:image][:image].each do |image|
+      @ad.images.create(image: image)
+    end
     respond_to do |format|
       if @ad.update_attributes(params[:ad])
         format.html { redirect_to @ad, notice: 'Ad was successfully updated.' }

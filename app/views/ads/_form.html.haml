@@ -5,7 +5,7 @@
       {include_blank: true},
       { data: { dynamic_selectable_url: dynamic_select_automodels_path(':automark_id'), dynamic_selectable_target: '#ad_automodel_id'}}
   = f.label :automodel_id
-  = f.collection_select :automodel_id, @ad.automark.try(:automark) || [], :id, :name, :include_blank => true
+  = f.collection_select :automodel_id, @ad.automark.try(:automodels) || [], :id, :name, :include_blank => true
   = f.input :color, label: 'Цвет'
   = f.input :price, label: 'Стоимость'
   = f.input :bodytype, label: 'Тип кузова', collection: Ad::BODYTYPES
@@ -23,33 +23,15 @@
   = f.input :date, :start_year => Time.now.year, :end_year => Time.now.year - 60, :discard_day => true, :discard_month => true, label: 'Год выпуска'
   = f.input :region, label: 'Область'
   = f.input :city, label: 'Город'
-  = f.file_field :image, label: 'Фотография'
-  = f.input :image_url, label: 'Скопируйте URL фотографии'
+  //= f.file_field :image, label: 'Фотография'
+  = f.simple_fields_for Image.new do |image|
+    = image.input_field :image, as: :file, label: 'Фотографии', multiple: true, name: 'image[image][]'
+  //= f.input :image_url, label: 'Скопируйте URL фотографии'
+  %script#template-upload{:type => "text/x-tmpl"}
+    .upload
+      {%=o.name}
+      .progress.bar{ :style => "width: 0%;" }
   = f.button :submit
 
-
-
-
   //= observe_field :automark_id, :url => automarks_path(:format => "for_select"), :method => :get, :update => :automodel_id, :with => "'automark_id=' + value"
-
-//:javascript
-//  $(document).ready(function(){
-//    /*$('#ad_automark').on('click', function(){
-//        alert(1);
-//      });
-//    $('#ad_automark').click(function(){
-//        var value = $('select#ad_automark :selected').val();
-//        alert(value);
-//
-//    });*/
-//    $("#ad_automark").click(function(){
-//      var url = 'get_drop_down_options?automark_id=' + $(this).val();
-//      alert(url);
-//      $("#ad_automodel").remove();
-//      $.get(url, function(data) {
-//        $('#ad_automodel').append(data, false);
-//      });
-//    });
-//  });       */
-
 

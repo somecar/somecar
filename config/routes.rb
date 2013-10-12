@@ -12,7 +12,10 @@ Somecar::Application.routes.draw do
     end
   end
 
+
+
   resources :ads do
+    resources :images
     collection do
       get :search
     end
