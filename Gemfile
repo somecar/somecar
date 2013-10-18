@@ -12,6 +12,7 @@ gem 'devise'
 gem 'simple_form'
 gem 'haml-rails'
 gem 'haml'
+gem 'bootstrap-sass'
 
 # gem for authorization
 gem 'cancan'

@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   has_many :ads
 
   def set_role
-    self.role = 2
+    self.role = 'customer'
     self.save
   end
   

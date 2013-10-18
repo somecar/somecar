@@ -29,7 +29,7 @@ class AdsController < ApplicationController
     @ad.images.build
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html # new.html.haml
       format.json { render json: @ad }
     end
   end
@@ -98,6 +98,14 @@ class AdsController < ApplicationController
     #Use val to find records
     options = Automodel.collect{|x| "'#{x.id}' : '#{x.name}'"}
     render :text => "{#{options.join(",")}}"
+  end
+
+  def mine
+    @my_ads = Ad.where('user_id = ?', current_user.id)
+    respond_to do |format|
+      format.html
+      format.json { render json: @ads }
+    end
   end
 
 end

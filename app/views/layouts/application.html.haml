@@ -1,0 +1,28 @@
+!!!
+%html
+  %head
+    %title Somecar
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
+    = csrf_meta_tags
+  %body
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+          %a.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          %a= link_to 'SomeCar', ads_path, class: 'brand'
+          .nav-collapse
+            %ul.nav.pull-right
+              - if current_user
+                %li= link_to 'Поиск', search_ads_path
+                %li= link_to 'Мои объявления', mine_ads_path
+                %li= link_to 'Выйти', destroy_user_session_url, method: :delete
+              - else
+                %li= link_to 'Войти', new_user_session_path
+                %li= link_to 'Зарегистрироваться', new_user_registration_path
+    .container
+      .container-space
+      = yield

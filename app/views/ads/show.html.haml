@@ -1,5 +1,8 @@
+
 %p#notice
   = notice
+
+%br
 
 - if @ad.images
   - @ad.images.each do |image|
@@ -23,82 +26,68 @@
   = @ad.mileage
 
 
-/<p>
-/  <b>Тип двигателя:</b>
-/  <%= @ad.enginetype %>
-/</p>
-/
-/<p>
-/  <b>Объем двигателя:</b>
-/  <%= @ad.enginecapacity %>
-/</p>
-/
-/<p>
-/  <b>Привод:</b>
-/  <%= @ad.drive %>
-/</p>
-/
-/<p>
-/  <b>Мощность двигателя:</b>
-/  <%= @ad.power %>
-/</p>
-/
-/<p>
-/  <b>Коробка передач:</b>
-/  <%= @ad.transmission %>
-/</p>
-/
-/<p>
-/  <b>Состояние:</b>
-/  <%= @ad.state %>
-/</p>
-/
-/<p>
-/  <b>Ориентированоость руля:</b>
-/  <%= @ad.wheel %>
-/</p>
-/
-/<p>
-/  <b>Таможня:</b>
-/  <%= @ad.customs %>
-/</p>
-/
-/<p>
-/  <b>Возможность обмена:</b>
-/  <%= @ad.exchange %>
-/</p>
-/
-/<p>
-/  <b>Кол-во хозяев по ПТС:</b>
-/  <%= @ad.owner %>
-/</p>
-/
-/<p>
-/  <b>Дата подачи:</b>
-/  <%= @ad.date %>
-/</p>
-/
-/<p>
-/  <b>Область:</b>
-/  <%= @ad.region %>
-/</p>
-/
-/<p>
-/  <b>Город:</b>
-/  <%= @ad.city %>
-/</p>
-/
-/<p>
-/  <b>Модель:</b>
-/  <%= @ad.automodel %>
-/</p>
-/
-/<p>
-/  <b>Марка:</b>
-/  <%= @ad.automark %>
-/</p>
+%p
+  %bТип двигателя:
+  = @ad.enginetype
 
-//<%= image_tag @ad.image_url(:thumb) if @ad.image? %>
+%p
+  %bОбъем двигателя:
+  = @ad.enginecapacity
+
+%p
+  %bПривод:
+  = @ad.drive
+
+%p
+  %bМощность двигателя:
+  = @ad.power
+
+%p
+  %bКоробка передач:
+  = @ad.transmission
+
+%p
+  %bСостояние:
+  = @ad.state
+
+%p
+  %bОриентированоость руля:
+  = @ad.wheel
+
+%p
+  %bТаможня:
+  = @ad.customs 
+
+%p
+  %bВозможность обмена:
+  = @ad.exchange 
+
+%p
+  %bКол-во хозяев по ПТС:
+  = @ad.owner 
+
+%p
+  %bДата подачи:
+  = @ad.date 
+
+%p
+  %bОбласть:
+  = @ad.region 
+
+%p
+  %bГород:
+  = @ad.city 
+
+%p
+  %bМодель:
+  = Automodel.find(@ad.automodel_id).name
+
+%p
+  %bМарка:
+  = Automark.find(@ad.automark_id).name
+
+
+/= image_tag @ad.image_url(:thumb) if @ad.image? 
 
 = link_to 'Редактировать', edit_ad_path(@ad)
 = link_to 'Назад', ads_path

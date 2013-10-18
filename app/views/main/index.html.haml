@@ -1,0 +1,22 @@
+.row
+  .span6
+    %h4 Случайные объявления
+    %h5=link_to 'Все объявления', ads_path
+    - @ads.each do |ad|
+      .col-md-4
+        - if ad.images[0]
+          = image_tag ad.images[0].image.small
+        - else
+          Фото отсутствует
+      .col-md-8
+        - if can? :read, Ad
+          = link_to "#{Automark.find(ad.automark_id).name} #{Automodel.find(ad.automodel_id).name}, #{ad.city}, #{ad.mileage} км", ad_path(ad)
+        - else
+          #{Automark.find(ad.automark_id).name} #{Automodel.find(ad.automodel_id).name}, #{ad.city}, #{ad.mileage} км
+      %br
+  %h4 Продать автомобиль
+  .span6
+    - unless current_user
+      = render 'devise/registrations/form'
+    - else
+      = render 'ads/form'

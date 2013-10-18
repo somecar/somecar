@@ -1,10 +1,11 @@
 %h2
-  Список всех объявлений
+  Список моих объявлений
 
 .container
   %table.table.table-striped
     %thead
       %t
+        %th
         %th
         %th Фото
         %th Марка
@@ -20,11 +21,10 @@
         %th Цвет
         %th Пробег
     %tbody
-      - @ads.each do |ad|
+      - @my_ads.each do |ad|
         %tr
-          %td
-            - if can? :read, Ad
-              = link_to 'Просмотр объявления', ad
+          %td= link_to 'Редактировать объявление', edit_ad_path(ad)
+          %td= link_to 'Просмотр объявления', ad
           %td= ad.images.first ? 'Фото есть' : 'Фотографии отсутствуют'
           %td= Automark.find(ad.automark_id).name if ad.automark_id
           %td= Automodel.find(ad.automodel_id).name if ad.automodel_id
@@ -38,3 +38,4 @@
           %td= ad.region if ad.region
           %td= ad.color if ad.color
           %td= ad.mileage if ad.mileage
+= link_to 'Новое объявление', new_ad_path
