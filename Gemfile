@@ -12,7 +12,6 @@ gem 'devise'
 gem 'simple_form'
 gem 'haml-rails'
 gem 'haml'
-gem 'bootstrap-sass'
 
 # gem for authorization
 gem 'cancan'
@@ -41,7 +40,7 @@ group :assets do
   #for server
   gem 'therubyracer'
   gem 'execjs'
-
+  gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass'
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
 

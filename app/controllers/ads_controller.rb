@@ -101,7 +101,7 @@ class AdsController < ApplicationController
   end
 
   def mine
-    @my_ads = Ad.where('user_id = ?', current_user.id)
+    @my_ads = current_user.ads
     respond_to do |format|
       format.html
       format.json { render json: @ads }

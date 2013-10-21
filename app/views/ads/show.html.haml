@@ -4,9 +4,8 @@
 
 %br
 
-- if @ad.images
-  - @ad.images.each do |image|
-    = image_tag image.image.thumb, class: 'img-polaroid'
+- @ad.images.each do |img|
+  = image_tag img.image.thumb, class: 'img-polaroid'
 
 %p
   %b Цвет:
@@ -80,11 +79,11 @@
 
 %p
   %bМодель:
-  = Automodel.find(@ad.automodel_id).name
+  = @ad.automodel.try(:name)
 
 %p
   %bМарка:
-  = Automark.find(@ad.automark_id).name
+  = @ad.automark.try(:name)
 
 
 /= image_tag @ad.image_url(:thumb) if @ad.image? 

@@ -26,8 +26,8 @@
             - if can? :read, Ad
               = link_to 'Просмотр объявления', ad
           %td= ad.images.first ? 'Фото есть' : 'Фотографии отсутствуют'
-          %td= Automark.find(ad.automark_id).name if ad.automark_id
-          %td= Automodel.find(ad.automodel_id).name if ad.automodel_id
+          %td= ad.automark.try(:name)
+          %td= ad.automodel.try(:name)
           %td= ad.power if ad.power
           %td= Ad::TRANSMISSION.rassoc(ad.transmission)[0] if ad.transmission
           %td= ad.state if ad.state
