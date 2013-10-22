@@ -43,8 +43,8 @@ class AdsController < ApplicationController
   # POST /ads.json
   def create
     @ad = Ad.create(params[:ad])
-    params[:image][:image].each do |image|
-     @ad.images.create(image: image)
+    params[:image][:image].each do |img|
+     @ad.images.create(image: img)
     end
     @ad.user = current_user if current_user
     respond_to do |format|
@@ -63,8 +63,8 @@ class AdsController < ApplicationController
   def update
     @ad = Ad.find(params[:id])
     @ad.images.destroy_all if params[:image][:image]
-    params[:image][:image].each do |image|
-      @ad.images.create(image: image)
+    params[:image][:image].each do |img|
+      @ad.images.create(image: img)
     end
     respond_to do |format|
       if @ad.update_attributes(params[:ad])
@@ -94,8 +94,7 @@ class AdsController < ApplicationController
   end
 
   def get_drop_down_options
-    val = params[:ad_automark_id]
-    #Use val to find records
+    val = params[:ad_automark_id] #TODO Use val to find records
     options = Automodel.collect{|x| "'#{x.id}' : '#{x.name}'"}
     render :text => "{#{options.join(",")}}"
   end

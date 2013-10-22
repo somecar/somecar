@@ -1,12 +1,9 @@
 = simple_form_for(@ad, html: {class: 'row', multipart: true}) do |f|
   .span4
     = f.error_notification
-    = f.label :automark_id
-    = f.collection_select :automark_id, Automark.all, :id, :name,
-        {include_blank: true},
-        { data: { dynamic_selectable_url: dynamic_select_automodels_path(':automark_id'), dynamic_selectable_target: '#ad_automodel_id'}}
-    = f.label :automodel_id
-    = f.collection_select :automodel_id, @ad.automark.try(:automodels) || [], :id, :name, :include_blank => true
+    = f.input :automark_id, label: 'Марка автомобиля', collection: Automark.all, value_method: 'id', label_method: 'name', include_blank: true,
+              input_html: { data: { dynamic_selectable_url: dynamic_select_automodels_path(':automark_id'), dynamic_selectable_target: '#ad_automodel_id'}}
+    = f.input :automodel_id, label: 'Модель автомобиля', collection: @ad.automark.try(:automodels) || [], value_method: 'id', label_method: 'name', include_blank: true
     = f.input :color, label: 'Цвет'
     = f.input :price, label: 'Стоимость'
     = f.input :bodytype, label: 'Тип кузова', collection: Ad::BODYTYPES
@@ -27,12 +24,11 @@
     = f.input :region, label: 'Область'
     = f.input :city, label: 'Город'
     = f.input :description, as: :text, label: 'Описание автомобиля', :input_html => { :cols => 150, :rows => 8 }
-    = f.simple_fields_for Image.new do |image|
-      = image.input_field :image, as: :file, label: 'Фотографии', multiple: true, name: 'image[image][]'
-    = f.input :user_id, as: :hidden, value: current_user.id if current_user
+    = f.simple_fields_for Image.new do |img|
+      = img.input_field :image, as: :file, label: 'Фотографии', multiple: true, name: 'image[image][]'
     = f.button :submit, 'Создать объявление'
 
 
 
-    //= observe_field :automark_id, :url => automarks_path(:format => "for_select"), :method => :get, :update => :automodel_id, :with => "'automark_id=' + value"
+    #TODO //= observe_field :automark_id, :url => automarks_path(:format => "for_select"), :method => :get, :update => :automodel_id, :with => "'automark_id=' + value"
 

@@ -2,8 +2,7 @@
 class Ad < ActiveRecord::Base
   attr_accessible :bodytype, :city, :color, :customs, :date,
   :drive, :enginecapacity, :enginetype, :exchange, :mileage, :owner, :power, 
-  :price, :region, :state, :transmission, :wheel, :automark_id, :automodel_id,
-  :images_attributes, :description, :user_id
+  :price, :region, :state, :transmission, :wheel, :images_attributes, :description
 
   #TODO: fix date row in the table!! Why it save full current date with selected year o_O
   #TODO: to think about indexes for this model to make search quicker

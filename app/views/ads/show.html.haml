@@ -1,4 +1,3 @@
-
 %p#notice
   = notice
 
@@ -84,9 +83,6 @@
 %p
   %bМарка:
   = @ad.automark.try(:name)
-
-
-/= image_tag @ad.image_url(:thumb) if @ad.image? 
 
 = link_to 'Редактировать', edit_ad_path(@ad)
 = link_to 'Назад', ads_path

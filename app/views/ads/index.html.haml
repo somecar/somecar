@@ -29,10 +29,10 @@
           %td= ad.automark.try(:name)
           %td= ad.automodel.try(:name)
           %td= ad.power if ad.power
-          %td= Ad::TRANSMISSION.rassoc(ad.transmission)[0] if ad.transmission
+          %td= Ad::TRANSMISSION.rassoc(ad.transmission).first if ad.transmission
           %td= ad.state if ad.state
-          %td= Ad::CUSTOMS.rassoc(ad.customs)[0] if ad.customs
-          %td= Ad::EXCHANGE.rassoc(ad.exchange.to_i)[0] if ad.exchange.to_i
+          %td= Ad::CUSTOMS.rassoc(ad.customs).first if ad.customs
+          %td= Ad::EXCHANGE.rassoc(ad.exchange.to_i).first if ad.exchange.to_i
           %td= ad.owner if ad.owner
           %td= ad.date if ad.date
           %td= ad.region if ad.region
