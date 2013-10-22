@@ -18,6 +18,7 @@ gem 'cancan'
 #for upload files
 gem 'rmagick'
 gem 'carrierwave'
+gem 'jquery-fileupload-rails'
 
 # for api json views
 gem 'rabl'
@@ -28,11 +29,14 @@ gem 'activeadmin'
 # for multipe select field
 gem 'select2-rails'
 
+
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
   gem 'less-rails'
-  gem 'sass-rails',   '~> 3.2.3'
+  gem 'sass-rails', '>= 3.2'
+  gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass'
   gem 'coffee-rails'
   gem 'backbone-on-rails'
   gem 'haml_coffee_assets'

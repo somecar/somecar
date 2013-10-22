@@ -1,3 +1,4 @@
+# coding: utf-8
 class AdsController < ApplicationController
   # GET /ads
   # GET /ads.json
@@ -16,7 +17,7 @@ class AdsController < ApplicationController
     @ad = Ad.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html # show.html.haml
       format.json { render json: @ad }
     end
   end
@@ -25,10 +26,10 @@ class AdsController < ApplicationController
   # GET /ads/new.json
     def new
     @ad = Ad.new
-    @automodels = Automodel.all
+    @ad.images.build
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html # new.html.haml
       format.json { render json: @ad }
     end
   end
@@ -41,11 +42,14 @@ class AdsController < ApplicationController
   # POST /ads
   # POST /ads.json
   def create
-    @ad = Ad.new(params[:ad])
+    @ad = Ad.create(params[:ad])
+    params[:image][:image].each do |img|
+     @ad.images.create(image: img)
+    end
     @ad.user = current_user if current_user
     respond_to do |format|
       if @ad.save
-        format.html { redirect_to @ad, notice: 'Ad was successfully created.' }
+        format.html { redirect_to @ad, notice: 'Ваше объявление добавлено.' }
         format.json { render json: @ad, status: :created, location: @ad }
       else
         format.html { render action: 'new' }
@@ -58,7 +62,10 @@ class AdsController < ApplicationController
   # PUT /ads/1.json
   def update
     @ad = Ad.find(params[:id])
-
+    @ad.images.destroy_all if params[:image][:image]
+    params[:image][:image].each do |img|
+      @ad.images.create(image: img)
+    end
     respond_to do |format|
       if @ad.update_attributes(params[:ad])
         format.html { redirect_to @ad, notice: 'Ad was successfully updated.' }
@@ -85,4 +92,18 @@ class AdsController < ApplicationController
   def search
     @ad_count = 7
   end
+
+  def get_drop_down_options
+    options = Automodel.collect{|x| "'#{x.id}' : '#{x.name}'"}
+    render :text => "{#{options.join(",")}}"
+  end
+
+  def mine
+    @my_ads = current_user.ads
+    respond_to do |format|
+      format.html
+      format.json { render json: @ads }
+    end
+  end
+
 end

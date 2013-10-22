@@ -1,0 +1,88 @@
+%p#notice
+  = notice
+
+%br
+
+- @ad.images.each do |img|
+  = image_tag img.image.thumb, class: 'img-polaroid'
+
+%p
+  %b Цвет:
+  = @ad.color
+
+%p
+  %b Стоимость:
+  = @ad.price
+
+
+%p>
+  %b Тип кузова:
+  = @ad.bodytype
+
+%p
+  %b Пробег:
+  = @ad.mileage
+
+
+%p
+  %bТип двигателя:
+  = @ad.enginetype
+
+%p
+  %bОбъем двигателя:
+  = @ad.enginecapacity
+
+%p
+  %bПривод:
+  = @ad.drive
+
+%p
+  %bМощность двигателя:
+  = @ad.power
+
+%p
+  %bКоробка передач:
+  = @ad.transmission
+
+%p
+  %bСостояние:
+  = @ad.state
+
+%p
+  %bОриентированоость руля:
+  = @ad.wheel
+
+%p
+  %bТаможня:
+  = @ad.customs 
+
+%p
+  %bВозможность обмена:
+  = @ad.exchange 
+
+%p
+  %bКол-во хозяев по ПТС:
+  = @ad.owner 
+
+%p
+  %bДата подачи:
+  = @ad.date 
+
+%p
+  %bОбласть:
+  = @ad.region 
+
+%p
+  %bГород:
+  = @ad.city 
+
+%p
+  %bМодель:
+  = @ad.automodel.try(:name)
+
+%p
+  %bМарка:
+  = @ad.automark.try(:name)
+
+= link_to 'Редактировать', edit_ad_path(@ad)
+= link_to 'Назад', ads_path

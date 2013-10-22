@@ -1,0 +1,41 @@
+%h2
+  Список моих объявлений
+
+.container
+  %table.table.table-striped
+    %thead
+      %t
+        %th
+        %th
+        %th Фото
+        %th Марка
+        %th Модель
+        %th Мощность, л.с.
+        %th Коробка передач
+        %th Состояние
+        %th Таможня
+        %th Возможность обмена
+        %th Кол-во владельцев
+        %th Дата публикации
+        %th Область
+        %th Цвет
+        %th Пробег
+    %tbody
+      - @my_ads.each do |ad|
+        %tr
+          %td= link_to 'Редактировать объявление', edit_ad_path(ad)
+          %td= link_to 'Просмотр объявления', ad
+          %td= ad.images.first ? 'Фото есть' : 'Фотографии отсутствуют'
+          %td= ad.automark.try(:name)
+          %td= ad.automodel.try(:name)
+          %td= ad.power if ad.power
+          %td= Ad::TRANSMISSION.rassoc(ad.transmission).first if ad.transmission
+          %td= ad.state if ad.state
+          %td= Ad::CUSTOMS.rassoc(ad.customs).first if ad.customs
+          %td= Ad::EXCHANGE.rassoc(ad.exchange.to_i).first if ad.exchange.to_i
+          %td= ad.owner if ad.owner
+          %td= ad.date if ad.date
+          %td= ad.region if ad.region
+          %td= ad.color if ad.color
+          %td= ad.mileage if ad.mileage
+= link_to 'Новое объявление', new_ad_path

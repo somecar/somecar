@@ -6,7 +6,7 @@
   <%= f.input :password, label: 'Введите Ваш пароль' %><br />
   
   <% if devise_mapping.rememberable? -%>
-    <div><%= f.input :remember_me, :as => :boolean %></div>
+    <div><%= f.input :remember_me, :as => :boolean, label: 'Запомнить меня' %></div>
   <% end -%>
 
   <div><%= f.submit "Войти" %></div>

@@ -22,11 +22,15 @@
 //= require_tree ./collections
 //= require_tree ./views
 //= require_tree ./routers
-//= require_tree .
 //= require select2
+//= require dynamic-selectable
+//= require bootstrap
+//= require_tree .
+
 $.getScript('http://ivaynberg.github.io/select2/select2-2.1/select2.js',function(){
 
   $(".search-form__automark").select2({
     allowClear:true
   });
 });
+

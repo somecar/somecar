@@ -11,6 +11,7 @@
  *= require_self
  *= require_tree .
  *= require select2
+ *= require bootstrap
  */
 
 .container-space{padding-top: 40px;}
@@ -18,4 +19,8 @@
 .bordered_search_result {
   border: 1px #808080 dotted;
   margin: 10px;
+}
+
+.clearleft {
+    clear: left;
 }

@@ -1,0 +1,34 @@
+= simple_form_for(@ad, html: {class: 'row', multipart: true}) do |f|
+  .span4
+    = f.error_notification
+    = f.input :automark_id, label: 'Марка автомобиля', collection: Automark.all, value_method: 'id', label_method: 'name', include_blank: true,
+              input_html: { data: { dynamic_selectable_url: dynamic_select_automodels_path(':automark_id'), dynamic_selectable_target: '#ad_automodel_id'}}
+    = f.input :automodel_id, label: 'Модель автомобиля', collection: @ad.automark.try(:automodels) || [], value_method: 'id', label_method: 'name', include_blank: true
+    = f.input :color, label: 'Цвет'
+    = f.input :price, label: 'Стоимость'
+    = f.input :bodytype, label: 'Тип кузова', collection: Ad::BODYTYPES
+    = f.input :mileage, label: 'Пробег, км'
+    = f.input :enginetype, label: 'Тип двигателя', collection: Ad::ENGINETYPES, as: :radio_buttons
+    = f.input :enginecapacity, label: 'Объем двигателя, см3'
+    = f.input :drive, label: 'Привод', collection: Ad::DRIVETYPE, as: :radio_buttons
+  .span4
+    = f.input :power, label: 'Мощность, л.с.'
+    = f.input :transmission, label: 'Коробка передач', collection: Ad::TRANSMISSION, as: :radio_buttons
+    = f.input :state, label: 'Состояние'
+    = f.input :wheel, label: 'Ориентированность рулевого колеса', collection: Ad::WHEELTYPE
+    = f.input :customs, label: 'Таможня', collection: Ad::CUSTOMS, as: :radio_buttons
+    = f.input :exchange, label: 'Возможность обмена', collection: Ad::EXCHANGE, as: :radio_buttons
+    = f.input :owner, label: 'Кол-во владельцев'
+    = f.input :date, :start_year => Time.now.year, :end_year => Time.now.year - 60, :discard_day => true, :discard_month => true, label: 'Год выпуска'
+  .span4
+    = f.input :region, label: 'Область'
+    = f.input :city, label: 'Город'
+    = f.input :description, as: :text, label: 'Описание автомобиля', :input_html => { :cols => 150, :rows => 8 }
+    = f.simple_fields_for Image.new do |img|
+      = img.input_field :image, as: :file, label: 'Фотографии', multiple: true, name: 'image[image][]'
+    = f.button :submit, 'Создать объявление'
+
+
+
+    #TODO //= observe_field :automark_id, :url => automarks_path(:format => "for_select"), :method => :get, :update => :automodel_id, :with => "'automark_id=' + value"
+
