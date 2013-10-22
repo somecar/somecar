@@ -94,7 +94,6 @@ class AdsController < ApplicationController
   end
 
   def get_drop_down_options
-    val = params[:ad_automark_id] #TODO Use val to find records
     options = Automodel.collect{|x| "'#{x.id}' : '#{x.name}'"}
     render :text => "{#{options.join(",")}}"
   end
